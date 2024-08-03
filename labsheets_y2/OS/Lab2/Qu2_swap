@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+
+// we use pointers to change the values
+void func(int *x,int *y){
+
+    int temp;
+
+    temp = *x;
+    *x = *y;
+    *y = temp;
+
+}
+
+int main(){
+
+    int x,y;
+
+    printf("Enter the value of x : \n");
+    scanf("%d" , &x);
+
+    printf("Enter the value of y : \n");
+    scanf("%d" , &y);
+
+    // address of values are passed as parameters
+    func(&x,&y);
+
+    printf("new val of x is %d and y is : %d",x,y);
+
+    return 0;
+}
+
+

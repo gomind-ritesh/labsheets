@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+double func(double x){
+
+    return (pow(x,4)+pow(x,3)+(3*pow(x,2))+2);
+
+}
+
+int main(){
+
+    int input,function;
+
+    printf("Enter the value of x : \n");
+    scanf("%d" , &input);
+
+    function = func(input);
+
+    printf("When function is applied, value is : %d",function);
+
+    return 0;
+}
+
