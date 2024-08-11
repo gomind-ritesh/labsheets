@@ -24,21 +24,15 @@ void minmax (int arr[],int len , int *min, int *max)
 int main()
 {
     int min,max,fsize;
-    double duration,millisecdur;
     int secdur;
+    double duration,millisecdur;
     int size = 10 ;
 
     printf("Enter the size of final array ");
     scanf("%d",&fsize);
     struct timeval start,end;
 
-    //variables to store start and end time of programs (in seconds and useconds)
-   
-
     while(size <= fsize){
-
-        // start timer
-        gettimeofday(&start , NULL);
 
     int arr[size];
      for(int i = 0; i< size ; i++){
@@ -47,29 +41,30 @@ int main()
       // printf("%d \n" ,arr[i]);
      }
 
+        // start timer
+        gettimeofday(&start , NULL);
+        //printf("start For array with size %d, program took %ld sec and %ld microsec \n",size,start.tv_sec,start.tv_usec);
+
      minmax (arr,size,&min,&max);
 
         //End timer
         gettimeofday(&end , NULL);
+        //printf("end For array with size %d, program took %ld sec and %ld microsec \n",size,end.tv_sec,end.tv_usec);
+
 
         // Converting duration to seconds
         //usec
-        //duration = ((end.tv_sec - start.tv_sec)*1000000.0 + end.tv_usec) - start.tv_usec;
+        duration = ((end.tv_sec * 1000000) + end.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
 
-        double elapsed = (end.tv_sec - start.tv_sec) + 
-              ((end.tv_usec - start.tv_usec)/1000000.0);
-        /*      
+             
         //sec and millisec
-        secdur = duration / 1000000.0;
-        millisecdur = (duration - secdur*1000000.0)/1000.0;
-        */
+        secdur = duration *(1/ 1000000);
+        millisecdur = (duration - secdur*1000000)/1000.0;
+    
 
      printf("For array with size %d min val is %d and max value is %d \n" ,size,min,max);
-     //printf("For array with size %d, program took %d sec and %ld millisec \n",size,secdur,millisecdur);
-     printf("%lf \n" ,elapsed);
+     printf("For array with size %d, program took %ld sec and %lf millisec \n",size,secdur,millisecdur);
 
-
-     
     printf("\n");
      size = size*10;
 
