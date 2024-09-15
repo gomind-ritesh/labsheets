@@ -19,8 +19,7 @@ float power(float x,int n){
 int main(){
 
     float x,res;
-    int secdur;
-    double duration,millisecdur;
+    double secdur,duration,millisecdur;
 
     printf("Enter the value of x : \n");
     scanf("%f" , &x);
@@ -43,9 +42,9 @@ int main(){
     //usec
     duration = ((end.tv_sec * 1000000) + end.tv_usec) - ((start.tv_sec * 1000000) + start.tv_usec);
 
-             
+    // sleep(2);
     //sec and millisec
-    secdur = duration *(1/ 1000000);
+    secdur =(int)duration *(1/ 1000000);
     millisecdur = (duration - secdur*1000000)/1000.0;
     
     printf("program took %ld sec and %lf millisec \n" ,secdur,millisecdur);

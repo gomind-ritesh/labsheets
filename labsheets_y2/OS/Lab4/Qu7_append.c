@@ -3,7 +3,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-
 struct student {
 
     char names[20];
@@ -44,21 +43,19 @@ int fl,n,len ;
 char buff[1024];
 struct student stu;
 
-fl = open("lab45.dat",O_WRONLY | O_CREAT);
+fl = open("lab45.dat",O_WRONLY | O_APPEND);
 
-/*
 if(fl == -1){
-        printf("\nError Opening File!!\n");
+        printf("\nError Appending File!!\n");
     }
     else{
         printf("\nFile %s opened sucessfully!\n", "lab45.dat");
     }
-*/
 
 //Entering details of student
 
 for(int i =0 ;i<5;i++){
-    printf("\nEnter details of student %d \n",(i+1));
+    printf("\nEnter details of student %d \n",(i+6));
     stu = inputStudent();
 
     //adding information to buffer;
@@ -74,4 +71,3 @@ n = write(fl,buff,len);
 close(fl);
 return 0;
 }
-

@@ -1,19 +1,28 @@
 #include <stdio.h>
 // included for read and write
 #include <unistd.h>
+#include <fcntl.h>
+
 
 int main()
 {
 
-int fl;
-char dread[50];
+int fl,n ;
+char dread[100];
 
-fl = open("lab44.dat","O_RDONLY");
+fl = open("lab44.dat",O_RDONLY);
 
-while(read(fl,dread,20) != NULL)
-{
- printf("%s",dread);
-}
+if(fl == -1){
+        printf("\nError Opening File!!\n");
+    }
+    else{
+        printf("\nFile %s opened sucessfully!\n", "lab44.dat");
+    }
+
+
+ n = read(fl,dread,sizeof(dread));
+ printf("%s,%d",dread,n);
+
 
 close(fl);
 return 0;
