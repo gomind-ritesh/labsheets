@@ -1,0 +1,36 @@
+package Lab6;
+
+import java.util.Scanner;
+
+public class test {
+	public static long recursiveSum(long num) {
+		long sum = 0 ;
+		if(num % 3 == 0)
+		{
+			sum =sum + num;
+			return  sum;
+		}
+		if( num == 0 ) {
+		return 1;
+		}
+		
+		return sum + recursiveSum(num - 1);
+	}
+	
+
+	public static void main(String[] args) {
+		
+		  long num,fact;
+		  Scanner sc = new Scanner(System.in);
+
+		  System.out.println("Enter number: ");
+		  num = sc.nextInt();
+		  
+		  fact = recursiveSum(num);
+		  System.out.println("factorial is : " + fact);
+		  
+		  sc.close();
+		  
+
+}
+}

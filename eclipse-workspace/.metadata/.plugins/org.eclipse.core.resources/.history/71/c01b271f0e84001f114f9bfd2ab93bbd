@@ -1,0 +1,78 @@
+package lab9;
+
+import java.util.Scanner;
+
+public class Qu2_stack {
+	
+	
+	public static Stack copystack(Stack stack1, Stack stack2, boolean flag) {
+		
+		 // Pop elements to reverse the order
+        System.out.println("Reversed numbers: ");
+        Stack tempstack = new Stack();
+        
+        tempstack = stack1;
+        
+        if(flag == true)
+        {
+        	
+        	//reversed
+        	while (!stack1.isEmpty()) {
+                stack2.push(tempstack.pop().getElement());  // Pop and print elements
+            }
+        }
+        else
+        {  
+        	//not reversed
+       
+        	Stack reversedstack = new Stack();
+        	
+        	while (!tempstack.isEmpty()) {
+                reversedstack.push(tempstack.pop().getElement());  // Pop and print elements
+        	
+        	}
+        	
+        	while (!reversedstack.isEmpty()) {
+        		stack2.push(reversedstack.pop().getElement());  // Pop and print elements
+            }
+        }
+		
+		return stack2;
+	}
+		
+	public static void main(String[] args) {
+			
+		Scanner scanIn = new Scanner(System.in);
+			
+		int element;
+		
+		Stack mystack1 = new Stack();
+		Stack mystack2 = new Stack();
+		
+		// insert a new element to stack
+			System.out.print("Input numbers for stack1 (end list with 0): ");
+			element = scanIn.nextInt();		
+			
+			while(element != 0){
+	            mystack1.push(element);
+	            element = scanIn.nextInt();
+			}
+			
+		// insert a new element to stack
+			System.out.print("Input numbers for stack2 (end list with 0): ");
+			element = scanIn.nextInt();		
+			
+			while(element != 0){
+	            mystack2.push(element);
+	            element = scanIn.nextInt();
+	       }
+		
+			mystack2 = copystack(mystack1,mystack2,true);
+			
+			System.out.println("combined numbers: " + mystack2);
+			
+			scanIn.close();
+	}
+	
+
+}

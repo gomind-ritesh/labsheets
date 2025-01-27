@@ -1,0 +1,51 @@
+package test;
+	
+	public class LinkedListApp {
+	
+		public static void main(String[] args) {
+			
+		LinkedList myList = new LinkedList();
+		myList.addLast('D');
+		myList.addLast('I');
+		myList.addLast('N');
+		myList.addLast('O');
+		myList.addLast('S');
+		myList.addLast('A');
+		myList.addLast('U');
+		myList.addLast('R');
+		
+			System.out.println(get(myList, 9));
+		} // end main
+		
+		
+		
+		public static Node get(LinkedList aList, int num) {
+			/*
+		 * Returns the (num)th node from the end of the linked list
+		 * If num is greater than the length of the linked list, it returns null
+		 */
+		
+		// WRITE YOUR CODE AFTER THIS COMMENT
+			if(num > aList.getSize()) {
+				
+				return null;
+			}
+			else
+			{
+				
+				long index = aList.getSize() - num ;
+				
+				Node current = aList.getHead();
+				
+				while(index > 0 ) {
+					
+					current  = current.getNext();
+					index--;
+				}
+				
+				
+			return current;
+			}
+	} // end get
+	} // end class LinkedListApp
+

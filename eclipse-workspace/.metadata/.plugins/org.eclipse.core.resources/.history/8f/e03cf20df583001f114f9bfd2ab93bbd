@@ -1,0 +1,31 @@
+package lab9;
+
+
+import java.util.Scanner;
+
+public class qu1_stack {
+	
+
+	public static void main(String[] args) {
+		
+		Scanner scanIn = new Scanner(System.in);
+		
+	int element;
+	
+	Stack Rstack = new Stack();
+	
+	// insert a new element to stack
+		System.out.print("Input numbers (end list with 0): ");
+		element = scanIn.nextInt();		
+		
+		while(element != 0){
+            Rstack.push(element);
+            element = scanIn.nextInt();
+		}
+	
+		System.out.println("Reversed numbers: " + Rstack);
+		scanIn.close();
+	}
+	
+
+}

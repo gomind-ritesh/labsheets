@@ -1,0 +1,171 @@
+package test;
+
+	//include the package name if required
+
+	class Node {
+		private char element;
+		private Node next;	
+		
+		public Node(char element){
+			this.element = element;
+			this.next = null;
+		}
+		
+		public char getElement(){ return element; }
+		
+		public Node getNext(){ return next; }
+		
+		public void setElement(char newElement){ element  = newElement; }
+		
+		public void setNext(Node newNode){ next = newNode; }
+		
+		public String toString(){ return Character.toString(element); }
+	} // end class Node
+
+	
+ public class LinkedList {
+		private Node head;
+		private long size;
+		
+		public LinkedList(){
+			head = null;
+			size = 0;
+		}
+		
+		public Node getHead(){ return head; }
+		
+		public long getSize(){ return size; }
+		
+		public boolean isEmpty(){ return (head == null); }
+		
+		public void display(){
+			/*
+			 * traverses the linked list and displays all its elements
+			 */
+			Node current = head;
+			System.out.println("Linked list elements: ");
+			while(current != null){
+				System.out.print("\t" + current);
+				current = current.getNext();
+			}
+		} // end display
+		
+		public void addFirst(char newElement){
+			/*
+			 * adds a new element at the beginning of the linked list
+			 */
+			Node newNode = new Node(newElement);
+			newNode.setNext(head);
+			head = newNode;
+			size++;
+		} // end addFirst
+		
+		public void addLast(char newElement){
+			/*
+			 * adds a new element at the end of the linked list
+			 */
+			Node newNode = new Node(newElement);
+			if(head == null)
+				head = newNode;
+			else{
+				Node tail = head;
+				while(tail.getNext() != null)
+					tail = tail.getNext();
+				tail.setNext(newNode);
+			}
+			size++;
+		} // end addLast
+
+		public void addOrder(char element){
+			/*
+			 * adds a new element in an ordered way in the linked list
+			 */
+			Node newNode = new Node(element);
+			
+			if (head == null) 	// list is empty
+				head = newNode;	
+			else if (head.getElement() > element)
+				// first element in list has key value greater than element to be added
+				// no need to check other nodes because the newNode will come at the beginning of list
+				addFirst(element);			
+			else{				// new node will go somewhere in the middle of the list
+				Node current = head;
+				Node previous = head;
+				while(current != null && current.getElement() < element){
+						previous = current;
+						current = current.getNext();
+				}
+				newNode.setNext(current);
+				previous.setNext(newNode);
+			}     
+			size++;
+		} // end addOrder
+		
+		public boolean searchNode(char searchValue){
+			/*
+			 * searches for a node with a given value, and returns true if it is found and false otherwise
+			 */
+			Node current = head;
+			while(current != null){
+				if(current.getElement() == searchValue)
+					return true;
+				current = current.getNext();
+			}
+			return false;
+		}  // end searchNode
+		
+		
+		public Node deleteFirst(){
+			/*
+			 * deletes the first node of the linked list
+			 */
+			Node tmp;
+			if(head == null)
+				return null;
+			tmp = head;
+			head = head.getNext();
+			tmp.setNext(null);
+			size--;
+			return tmp;
+		} // end deleteFirst
+		
+		public Node deleteLast(){
+			/*
+			 * deletes the last node of the linked list
+			 */
+			Node current, previous;
+			if(head == null)
+				return null;
+			current = previous = head;
+			while(current.getNext() != null) {
+				previous = current;
+				current = current.getNext();			
+			}
+			previous.setNext(null);
+			size--;
+			return current;
+		} // end deleteFirst
+		
+		public Node deleteNode(char element){
+			/*
+			 * deletes a node with a particular element
+			 */
+			Node current = head;
+			Node previous = head;
+
+			if(head == null) return null;
+			while(current.getElement() != element && current.getNext() != null){
+				previous = current;
+				current = current.getNext();
+			}
+			if(current.getElement() == element){
+				if(current == head) head = head.getNext();
+				else previous.setNext(current.getNext());
+				current.setNext(null);
+				return current;
+			}
+			return null;
+		} // end deleteNode
+	} // end class LinkedList
+
+}

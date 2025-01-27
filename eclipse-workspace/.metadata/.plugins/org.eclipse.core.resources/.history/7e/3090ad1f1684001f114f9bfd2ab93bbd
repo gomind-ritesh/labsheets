@@ -1,0 +1,28 @@
+package test;
+
+public class LinkedListApp {
+	public static void main(String[] args) {
+		LinkedList myList = new LinkedList();
+		myList.addLast('D');
+		myList.addLast('I');
+		myList.addLast('N');
+		myList.addLast('O');
+		myList.addLast('S');
+		myList.addLast('A');
+		myList.addLast('U');
+		myList.addLast('R');
+		System.out.println(get(myList, 3));
+	} // end main
+	
+	public static Node get(LinkedList aList, int num) {
+		/*
+		 * Returns the (num)th node from the end of the linked list
+		 * If num is greater than the length of the linked list, it returns null
+		 */
+		
+		// WRITE YOUR CODE AFTER THIS COMMENT
+		
+	} // end get
+} // end class LinkedListApp
+
+

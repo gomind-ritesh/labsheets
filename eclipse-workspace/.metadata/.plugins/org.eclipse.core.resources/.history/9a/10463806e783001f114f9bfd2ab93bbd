@@ -1,0 +1,121 @@
+package lab9;
+
+import java.util.Scanner;
+
+public class LinkedListApp {
+	
+	public static LinkedList cumulativeSum(LinkedList list) {
+		
+		LinkedList sumList = new LinkedList();
+		
+		int sum = 0;
+		
+		Node current = list.getHead() ;
+		
+		while(current != null)
+		{
+			sum = sum + current.getElement();
+			sumList.addLast(sum);
+			current = current.getNext();
+			
+			
+		}
+		return sumList;
+	}
+	
+
+	public static void deal(LinkedList list,LinkedList firstlist,LinkedList secondlist) {
+	
+		int index = 1;
+		
+		Node current = list.getHead() ;
+		
+		while(current != null)
+		{
+			if( index%2 != 0 ) {
+				
+				firstlist.addLast(current.getElement());
+				current = current.getNext();
+				index++;
+			
+			}
+			else
+			{
+				secondlist.addLast(current.getElement());
+				current = current.getNext();
+				index++;
+			
+			}
+			
+		}
+	}
+	
+
+	
+	public static void main(String[] args) {
+	LinkedList myList = new LinkedList();
+	LinkedList cumulativesum = new LinkedList();
+	
+	
+	Scanner scanIn = new Scanner(System.in);
+
+	int element, newElement;
+//	Node deleteNode;
+//
+	// check if the linked list is empty
+//	System.out.println("isEmpty? " + myList.isEmpty());
+
+	// insert a new node
+	System.out.print("Input numbers (end list with 0): ");
+	element = scanIn.nextInt();		
+	while(element != 0){
+//		myList.addFirst(element);
+//		myList.addLast(element);
+		myList.addOrder(element);
+		element = scanIn.nextInt();
+	}
+	System.out.println("List contains: " + myList);
+//	myList.display();
+	
+	
+	System.out.println("Cumulative List contains: " + cumulativeSum(myList));
+//	myList.display();
+	
+	System.out.println();
+	
+	 //check if the linked list is empty
+	 //System.out.println("isEmpty? " + myList.isEmpty());
+	
+	// searching for a node with a given value
+//	System.out.println("Which value do you want to search for? ");
+//	element = scanIn.nextInt();
+//	if (myList.searchNode(element))
+//		System.out.println("The value " + element + " is found in the linked list");
+//	else
+//		System.out.println("The value " + element + " is NOT found in the linked list");
+
+	// modify the value of a node
+//	System.out.println("Which value do you want to modify? ");
+//	element = scanIn.nextInt();
+//	System.out.println("What value do you want to set it to? ");
+//	newElement = scanIn.nextInt();
+//	myList.modifyNode(element, newElement);
+//	myList.display();
+//	
+	// delete the first node in the linked list
+//	deleteNode = myList.deleteFirst();
+//	System.out.println("Element deleted: " + deleteNode);
+//	System.out.println("List contains: " + myList);
+//	myList.display();
+	
+	// delete a node with a given value
+//	System.out.print("Please enter element to delete: ");
+//	element = scanIn.nextInt();
+//	deleteNode = myList.deleteNode(element);
+//	System.out.println("Element deleted: " + deleteNode);
+//	System.out.println("List contains: " + myList);
+//	myList.display();
+	
+	scanIn.close();
+} // end main
+} // end class LinkedListApp

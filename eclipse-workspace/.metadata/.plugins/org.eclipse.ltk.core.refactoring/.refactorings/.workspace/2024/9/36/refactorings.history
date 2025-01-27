@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Qu1_countingbords&apos;" deleteContents="false" description="Delete resource &apos;Qu1_countingbords&apos;" element1="/Qu1_countingbords" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1725379929435"/>&#x0A;<refactoring comment="Delete resource &apos;Qu1_countingbords_dynamic&apos;" deleteContents="false" description="Delete resource &apos;Qu1_countingbords_dynamic&apos;" element1="/Qu1_countingbords_dynamic" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1725380048900"/>
+</session>
